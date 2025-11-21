@@ -1,0 +1,102 @@
+{
+	"name": "nycpayroll_2020",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "nycpayroll_2020.csv",
+				"folderPath": "dirstaging/Summary",
+				"fileSystem": "payroll"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "2020",
+				"type": "String"
+			},
+			{
+				"name": "17",
+				"type": "String"
+			},
+			{
+				"name": "2120",
+				"type": "String"
+			},
+			{
+				"name": "OFFICE OF EMERGENCY MANAGEMENT",
+				"type": "String"
+			},
+			{
+				"name": "10001",
+				"type": "String"
+			},
+			{
+				"name": "GEAGER",
+				"type": "String"
+			},
+			{
+				"name": "VERONICA",
+				"type": "String"
+			},
+			{
+				"name": "9/12/2016",
+				"type": "String"
+			},
+			{
+				"name": "BROOKLYN",
+				"type": "String"
+			},
+			{
+				"name": "40447",
+				"type": "String"
+			},
+			{
+				"name": "EMERGENCY PREPAREDNESS MANAGER",
+				"type": "String"
+			},
+			{
+				"name": "ACTIVE",
+				"type": "String"
+			},
+			{
+				"name": "86005",
+				"type": "String"
+			},
+			{
+				"name": "per Annum",
+				"type": "String"
+			},
+			{
+				"name": "1820",
+				"type": "String"
+			},
+			{
+				"name": "84698.21",
+				"type": "String"
+			},
+			{
+				"name": "016",
+				"type": "String"
+			},
+			{
+				"name": "017",
+				"type": "String"
+			},
+			{
+				"name": "018",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

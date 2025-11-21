@@ -1,0 +1,38 @@
+{
+	"name": "EmpMaster",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "EmpMaster.csv",
+				"folderPath": "dirpayrollfiles",
+				"fileSystem": "payroll"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "100001",
+				"type": "String"
+			},
+			{
+				"name": "AACHEN",
+				"type": "String"
+			},
+			{
+				"name": "DAVID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

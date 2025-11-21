@@ -1,0 +1,109 @@
+{
+	"name": "Data2020",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "nycpayroll_2020",
+						"type": "DatasetReference"
+					},
+					"name": "Data2020"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "SQL_Data_2020",
+						"type": "DatasetReference"
+					},
+					"name": "sinkSQLData2020",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureDataLakeStorage1",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          {2020} as string,",
+				"          {17} as string,",
+				"          {2120} as string,",
+				"          {OFFICE OF EMERGENCY MANAGEMENT} as string,",
+				"          {10001} as string,",
+				"          GEAGER as string,",
+				"          VERONICA as string,",
+				"          {9/12/2016} as string,",
+				"          BROOKLYN as string,",
+				"          {40447} as string,",
+				"          {EMERGENCY PREPAREDNESS MANAGER} as string,",
+				"          ACTIVE as string,",
+				"          {86005} as string,",
+				"          {per Annum} as string,",
+				"          {1820} as string,",
+				"          {84698.21} as string,",
+				"          {016} as string,",
+				"          {017} as string,",
+				"          {018} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> Data2020",
+				"Data2020 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          FiscalYear as integer,",
+				"          PayrollNumber as integer,",
+				"          AgencyID as string,",
+				"          AgencyName as string,",
+				"          EmployeeID as string,",
+				"          LastName as string,",
+				"          FirstName as string,",
+				"          AgencyStartDate as date,",
+				"          WorkLocationBorough as string,",
+				"          TitleCode as string,",
+				"          TitleDescription as string,",
+				"          LeaveStatusasofJune30 as string,",
+				"          BaseSalary as double,",
+				"          PayBasis as string,",
+				"          RegularHours as double,",
+				"          RegularGrossPaid as double,",
+				"          OTHours as double,",
+				"          TotalOTPaid as double,",
+				"          TotalOtherPay as double",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          FiscalYear = {2020},",
+				"          PayrollNumber = {17},",
+				"          AgencyID = {2120},",
+				"          AgencyName = {OFFICE OF EMERGENCY MANAGEMENT},",
+				"          EmployeeID = {10001},",
+				"          LastName = GEAGER,",
+				"          FirstName = VERONICA,",
+				"          AgencyStartDate = {9/12/2016},",
+				"          WorkLocationBorough = BROOKLYN,",
+				"          TitleCode = {40447},",
+				"          TitleDescription = {EMERGENCY PREPAREDNESS MANAGER},",
+				"          LeaveStatusasofJune30 = ACTIVE,",
+				"          BaseSalary = {86005},",
+				"          PayBasis = {per Annum},",
+				"          RegularHours = {1820},",
+				"          RegularGrossPaid = {84698.21},",
+				"          OTHours = {016},",
+				"          TotalOTPaid = {017},",
+				"          TotalOtherPay = {018}",
+				"     )) ~> sinkSQLData2020"
+			]
+		}
+	}
+}

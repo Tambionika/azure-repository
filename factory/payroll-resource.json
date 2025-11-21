@@ -1,0 +1,9 @@
+{
+	"name": "payroll-resource",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "dd4c173c-da3d-485b-a0c1-87bb64b9fa6d",
+		"tenantId": "a502af5d-0e1c-4b27-b7d0-00025e4e8069"
+	}
+}
